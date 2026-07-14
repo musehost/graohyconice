@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Mi Página</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphycon Studio - Separador de Colores</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>¡Ya quedó mi web!</h1>
-    <p>Sitio en construcción</p>
+    <div class="app">
+        <header>
+            <h1>Graphycon Studio</h1>
+            <p>Separa colores → Agrega outlines → Exporta SVG</p>
+        </header>
+
+        <div class="controles">
+            <input type="file" id="imgInput" accept="image/*">
+            <button id="procesarBtn">1. Separar Colores</button>
+            <button id="outlineBtn" disabled>2. Agregar Outlines</button>
+            <button id="exportBtn" disabled>3. Exportar SVG</button>
+        </div>
+
+        <div class="workspace">
+            <div class="panel">
+                <h3>Original</h3>
+                <canvas id="canvasOriginal"></canvas>
+            </div>
+            <div class="panel">
+                <h3>Layers por Color</h3>
+                <div id="layersContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
