@@ -3,32 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphycon Studio - Separador de Colores</title>
+    <title>Gráfico Nise - Gráfico Estudio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app">
-        <header>
-            <h1>Graphycon Studio</h1>
-            <p>Separa colores → Agrega outlines → Exporta SVG</p>
-        </header>
-
-        <div class="controles">
-            <input type="file" id="imgInput" accept="image/*">
-            <button id="procesarBtn">1. Separar Colores</button>
-            <button id="outlineBtn" disabled>2. Agregar Outlines</button>
-            <button id="exportBtn" disabled>3. Exportar SVG</button>
+    <!-- BARRA DE MENÚ TIPO APP -->
+    <nav class="menu-bar">
+        <div class="menu-item">Archivo
+            <div class="dropdown">
+                <a href="#" onclick="abrirArchivo()">Abrir</a>
+                <a href="#" onclick="guardarSVG()">Guardar SVG</a>
+                <a href="#" onclick="exportarPNG()">Exportar PNG</a>
+            </div>
         </div>
+        <div class="menu-item">Editar
+            <div class="dropdown">
+                <a href="#" onclick="deshacer()">Deshacer</a>
+                <a href="#" onclick="rehacer()">Rehacer</a>
+            </div>
+        </div>
+        <div class="menu-item">Procesar
+            <div class="dropdown">
+                <a href="#" onclick="separarColores()">Separar Colores</a>
+                <a href="#" onclick="agregarOutlines()">Agregar Outlines</a>
+                <a href="#" onclick="aplicarGhostLight()">Ghost Light</a>
+            </div>
+        </div>
+        <div class="menu-item">Voz
+            <div class="dropdown">
+                <a href="#" onclick="iniciarVoz()">Activar Comandos</a>
+                <a href="#" onclick="detenerVoz()">Desactivar</a>
+            </div>
+        </div>
+    </nav>
 
-        <div class="workspace">
-            <div class="panel">
-                <h3>Original</h3>
-                <canvas id="canvasOriginal"></canvas>
-            </div>
-            <div class="panel">
-                <h3>Layers por Color</h3>
-                <div id="layersContainer"></div>
-            </div>
+    <!-- TU APP ACTUAL ABAJO -->
+    <div class="container">
+        <h1>Gráfico Nise</h1>
+        <p>Separa colores → Agrega outlines → Exporta SVG</p>
+        
+        <input type="file" id="fileInput" accept="image/*">
+        
+        <button id="btnSeparar" onclick="separarColores()">1. Separar Colores</button>
+        <button id="btnOutlines" onclick="agregarOutlines()" disabled>2. Agregar Outlines</button>
+        <button id="btnExportar" onclick="guardarSVG()" disabled>3. Exportar SVG</button>
+
+        <div class="preview">
+            <h3>Original</h3>
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="layers">
+            <h3>Layers por Color</h3>
+            <div id="colorLayers"></div>
         </div>
     </div>
 
